@@ -3,7 +3,7 @@ import Icon from './Icons';
 
 const Breadcrumb = ({ items }) => {
     return (
-        <nav className="mb-7 breadcrumb">
+        <nav className="mb-5 breadcrumb">
             <ol className="text-base font-medium flex gap-1 text-white">
                 {items.map((item, index) => (
                     <li key={index} className="flex items-center gap-1">

@@ -36,29 +36,29 @@ const CartPage = () => {
                     ) : (
                         <div className="grid lg:grid-cols-5 grid-cols-1 lg:gap-20 gap-10">
                             <div className="lg:col-span-2 space-y-9 w-full order-last">
-                                <h2 class="text-2xl font-semibold text-white">Cart Total</h2>
+                                <h2 className="text-2xl font-semibold text-white">Cart Total</h2>
 
-                                <div class="space-y-7">
-                                    <div class="space-y-4 text-base text-white/60">
-                                        <dl class="flex items-center justify-between gap-4">
-                                            <dt class="font-normal">Subtotal</dt>
-                                            <dd class="text-xl font-semibold text-white">${total.toFixed(2)}</dd>
+                                <div className="space-y-7">
+                                    <div className="space-y-4 text-base text-white/60">
+                                        <dl className="flex items-center justify-between gap-4">
+                                            <dt className="font-normal">Subtotal</dt>
+                                            <dd className="text-xl font-semibold text-white">${total.toFixed(2)}</dd>
                                         </dl>
 
-                                        <dl class="flex items-center justify-between gap-4">
-                                            <dt class="font-normal">Discount</dt>
-                                            <dd class="text-xl font-semibold text-green-600">-$0</dd>
+                                        <dl className="flex items-center justify-between gap-4">
+                                            <dt className="font-normal">Discount</dt>
+                                            <dd className="text-xl font-semibold text-green-600">-$0</dd>
                                         </dl>
 
-                                        <dl class="flex items-center justify-between gap-4">
-                                            <dt class="font-normal">Tax</dt>
-                                            <dd class="text-xl font-semibold text-white">9.20</dd>
+                                        <dl className="flex items-center justify-between gap-4">
+                                            <dt className="font-normal">Tax</dt>
+                                            <dd className="text-xl font-semibold text-white">$1.99</dd>
                                         </dl>
                                     </div>
 
-                                    <dl class="text-2xl flex items-center justify-between gap-4 border-t border-white/35 pt-6">
-                                        <dt class="font-bold text-gray-900 dark:text-white">Total</dt>
-                                        <dd class="font-bold text-gray-900 dark:text-white">${(total + 9.20).toFixed(2)}</dd>
+                                    <dl className="text-2xl flex items-center justify-between gap-4 border-t border-white/35 pt-6">
+                                        <dt className="font-bold text-gray-900 dark:text-white">Total</dt>
+                                        <dd className="font-bold text-gray-900 dark:text-white">${(total + 1.99).toFixed(2)}</dd>
                                     </dl>
                                 </div>
 
@@ -67,9 +67,9 @@ const CartPage = () => {
                                 </div>
                             </div>
 
-                            <div className="lg:col-span-3 flex flex-col gap-6">
+                            <div className="lg:col-span-3 flex flex-col gap-5">
                                 <Breadcrumb items={breadcrumbItems} />
-                                <h2 class="lg:text-2xl text-xl font-medium text-white">Your Cart</h2>
+                                <h2 className="lg:text-2xl text-xl font-medium text-white">Your Cart</h2>
 
                                 <div className="flex w-full flex-col gap-4">
                                     {cart.map((item) => (

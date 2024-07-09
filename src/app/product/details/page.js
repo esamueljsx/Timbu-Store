@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import productLists from "@/utils/fakeData";
 import { PageWrapper } from '@/app/components/ui/PageWrapper';
 import Button from '@/app/components/ui/Button';
@@ -10,6 +10,7 @@ import pfp from "../../../../public/assets/pfp.jpg";
 import { useCart } from "@/context/CartContext";
 
 const ProductDetails = () => {
+  const router = useRouter();
   const { addToCart } = useCart();
   const searchParams = useSearchParams();
   const productId = searchParams.get('productId');
@@ -19,6 +20,11 @@ const ProductDetails = () => {
     const id = productId || 0;
     const productResponse = productLists.find((product) => product.id === Number(id));
     setProduct(productResponse);
+  };
+
+  const handleBuyNow = () => {
+    addToCart(product);
+    router.push('/checkout');
   };
 
   useEffect(() => {
@@ -85,7 +91,7 @@ const ProductDetails = () => {
                 <Button variant="outline" onClick={() => addToCart(product)}>
                   Add to cart
                 </Button>
-                <Button path={'/'}>
+                <Button onClick={handleBuyNow}>
                   Buy now
                 </Button>
               </div>
@@ -146,5 +152,17 @@ const ProductDetails = () => {
     </PageWrapper>
   );
 };
+
+// export async function getServerSideProps(context) {
+//   const { id } = context.params;
+//   // Fetch product details using the ID
+//   const product = await fetchProductDetails(id);
+
+//   return {
+//     props: {
+//       product,
+//     },
+//   };
+// }
 
 export default ProductDetails;
