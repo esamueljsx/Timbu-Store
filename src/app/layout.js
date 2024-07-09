@@ -4,6 +4,7 @@ import Providers from "./components/ui/NProgress";
 import Footer from "./components/ui/Footer";
 import Navbar from "./components/ui/Navbar";
 import { CartProvider } from "@/context/CartContext";
+import { Suspense } from "react";
 
 const trispace = Raleway({
   weight: ["400", "500", "600", "700", "800"],
@@ -27,11 +28,13 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${trispace.variable} font-timbu bg-main`}>
         <Providers>
-          <CartProvider>
-            <Navbar />
-            {children}
-            <Footer />
-          </CartProvider>
+          <Suspense>
+            <CartProvider>
+              <Navbar />
+              {children}
+              <Footer />
+            </CartProvider>
+          </Suspense>
         </Providers>
       </body>
     </html>
