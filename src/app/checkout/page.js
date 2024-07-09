@@ -1,15 +1,13 @@
-// pages/checkout.js
 "use client";
 import { useCart } from '@/context/CartContext';
 import { PageWrapper } from "../components/ui/PageWrapper";
 import Image from "next/image";
 import Button from "../components/ui/Button";
-import Icon from "../components/ui/Icons";
 import Breadcrumb from "../components/ui/BreadCrumbs";
 import InputField from '../components/ui/TextField';
 
 const CheckoutPage = () => {
-  const { cart, removeFromCart, incrementQuantity, decrementQuantity } = useCart();
+  const { cart } = useCart();
 
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
@@ -76,7 +74,7 @@ const CheckoutPage = () => {
               </div>
 
               <div className="flex w-full">
-                <Button path="#" className="w-full">Place order</Button>
+                <Button path="/checkout/confirmed" className="w-full">Place order</Button>
               </div>
             </div>
 
