@@ -45,9 +45,9 @@ const CartPage = () => {
                                             <dd className="text-xl font-semibold text-white">${total.toFixed(2)}</dd>
                                         </dl>
 
-                                        <dl className="flex items-center justify-between gap-4">
+                                        <dl className="flex items-center justify-between gap-4 text-[#66EA97]">
                                             <dt className="font-normal">Discount</dt>
-                                            <dd className="text-xl font-semibold text-green-600">-$0</dd>
+                                            <dd className="text-xl font-semibold">-$0</dd>
                                         </dl>
 
                                         <dl className="flex items-center justify-between gap-4">
