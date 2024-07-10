@@ -63,7 +63,7 @@ const CartPage = () => {
                                 </div>
 
                                 <div className="flex w-full">
-                                    <Button path="/checkout" className="w-full">Proceed to Checkout</Button>
+                                    <Button path="/checkout" variant="blue" className="w-full">Proceed to Checkout</Button>
                                 </div>
                             </div>
 

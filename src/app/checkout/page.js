@@ -74,7 +74,7 @@ const CheckoutPage = () => {
               </div>
 
               <div className="flex w-full">
-                <Button path="/checkout/confirmed" className="w-full">Place order</Button>
+                <Button path="/checkout/confirmed" variant="blue" className="w-full">Place order</Button>
               </div>
             </div>
 
