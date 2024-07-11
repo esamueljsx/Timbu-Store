@@ -3,33 +3,33 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter, useSearchParams } from 'next/navigation';
-import productLists from "@/utils/fakeData";
+import bookLists from "@/utils/fakeData";
 import { PageWrapper } from '@/app/components/ui/PageWrapper';
 import Button from '@/app/components/ui/Button';
 import pfp from "../../../../public/assets/pfp.jpg";
-import { useCart } from "@/context/CartContext";
+import { useCart } from "@/context/CartPageContext";
 
-const ProductDetails = () => {
+const BookDetails = () => {
   const router = useRouter();
   const { addToCart } = useCart();
   const searchParams = useSearchParams();
-  const productId = searchParams.get('productId');
-  const [product, setProduct] = useState({});
+  const bookId = searchParams.get('bookId');
+  const [book, setBook] = useState({});
 
-  const getProductById = async () => {
-    const id = productId || 0;
-    const productResponse = productLists.find((product) => product.id === Number(id));
-    setProduct(productResponse);
+  const getBookById = async () => {
+    const id = bookId || 0;
+    const bookResponse = bookLists.find((book) => book.id === Number(id));
+    setBook(bookResponse);
   };
 
   const handleBuyNow = () => {
-    addToCart(product);
+    addToCart(book);
     router.push('/checkout');
   };
 
   useEffect(() => {
-    getProductById();
-  }, [productId]);
+    getBookById();
+  }, [bookId]);
 
   return (
     <PageWrapper>
@@ -38,8 +38,8 @@ const ProductDetails = () => {
           <div className="grid lg:grid-cols-2 grid-cols-1 lg:gap-20 gap-10">
             <div className="block h-full w-full">
               <Image
-                src={product.image}
-                alt={product.title}
+                src={book.image}
+                alt={book.title}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -47,7 +47,7 @@ const ProductDetails = () => {
             <div className="flex flex-col gap-7 text-white">
               <div className="flex flex-col gap-4 w-full">
                 <h1 className="lg:text-5xl text-3xl font-semibold text-white">
-                  {product.title}
+                  {book.title}
                 </h1>
                 <div className="flex items-center gap-4">
                   <div className="flex items-center gap-2 text-base font-medium">
@@ -58,37 +58,13 @@ const ProductDetails = () => {
                     />
                     HNG Shop
                   </div>
-                  {/* <div className="flex items-center gap-2">
-                    <div className="flex items-center gap-1">
-                      {[...Array(5)].map((_, index) => (
-                        <svg
-                          key={index}
-                          className="size-4 text-yellow-300"
-                          aria-hidden="true"
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="24"
-                          height="24"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"
-                          />
-                        </svg>
-                      ))}
-                    </div>
-                    <p className="text-sm font-medium leading-none">(4.6)</p>
-                    <Link href="#" className="text-sm font-medium leading-none underline hover:no-underline">
-                      345 Reviews
-                    </Link>
-                  </div> */}
                 </div>
-                <p className="text-xl font-medium">{product.desc}</p>
-                <p className="lg:text-4xl text-3xl font-semibold">{`$${product.price}`}</p>
+                <p className="text-xl font-medium">{book.desc}</p>
+                <p className="lg:text-4xl text-3xl font-semibold">{`$${book.price}`}</p>
               </div>
 
               <div className="flex w-full justify-end gap-4">
-                <Button variant="outline" onClick={() => addToCart(product)}>
+                <Button variant="outline" onClick={() => addToCart(book)}>
                   Add to cart
                 </Button>
                 <Button onClick={handleBuyNow}>
@@ -101,7 +77,7 @@ const ProductDetails = () => {
               <div className="flex items-center justify-between gap-2">
                 <h2 className="text-2xl font-semibold text-white">Reviews</h2>
                 <Link href="#" className="text-sm font-medium leading-none underline hover:no-underline">
-                  345 Reviews
+                  645 Reviews
                 </Link>
               </div>
 
@@ -134,7 +110,6 @@ const ProductDetails = () => {
                       <div className="flex h-1.5 w-full items-center overflow-hidden rounded-full bg-white/25">
                         <div className="h-full rounded-full bg-white" style={{ width: item.width }}></div>
                       </div>
-                      {/* <p className="w-8 shrink-0 text-end text-sm font-medium leading-none">{item.count}</p> */}
                     </div>
                   ))}
                 </div>
@@ -153,16 +128,4 @@ const ProductDetails = () => {
   );
 };
 
-// export async function getServerSideProps(context) {
-//   const { id } = context.params;
-//   // Fetch product details using the ID
-//   const product = await fetchProductDetails(id);
-
-//   return {
-//     props: {
-//       product,
-//     },
-//   };
-// }
-
-export default ProductDetails;
+export default BookDetails;

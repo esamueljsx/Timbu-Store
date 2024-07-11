@@ -1,7 +1,7 @@
 'use client';
 import { AppProgressBar as ProgressBar } from 'next-nprogress-bar';
 
-const Providers = ({ children }) => {
+const Loader = ({ children }) => {
     return (
         <>
             {children}
@@ -16,4 +16,4 @@ const Providers = ({ children }) => {
     )
 }
 
-export default Providers;
+export default Loader;

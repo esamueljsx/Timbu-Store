@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Card from "../components/ui/Card";
-import productLists from "@/utils/fakeData";
+import bookLists from "@/utils/fakeData";
 import { motion } from "framer-motion";
 
 const variants = {
@@ -29,15 +29,15 @@ const images = {
     },
 };
 
-function ProductGrid() {
-    const [products, setProducts] = useState([]);
+function BookGrid() {
+    const [books, setBooks] = useState([]);
 
-    const fetchProducts = async () => {
-        setProducts(productLists);
+    const fetchBooks = async () => {
+        setBooks(bookLists);
     };
 
     useEffect(() => {
-        fetchProducts();
+        fetchBooks();
     }, []);
 
     return (
@@ -50,7 +50,7 @@ function ProductGrid() {
                     animate="show"
                     className="mt-8 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-x-5 gap-y-11 w-full items-start justify-center"
                 >
-                    {products.map((item) => (
+                    {books.map((item) => (
                         <motion.div key={item.id} variants={images}>
                             <Card
                                 id={item.id}
@@ -65,4 +65,4 @@ function ProductGrid() {
         </div>
     );
 }
-export default ProductGrid;
+export default BookGrid;

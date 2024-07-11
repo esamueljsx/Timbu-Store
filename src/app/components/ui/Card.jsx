@@ -2,21 +2,21 @@ import Image from "next/image";
 import React from "react";
 import Button from "./Button";
 import Link from "next/link";
-import { useCart } from "@/context/CartContext";
+import { useCart } from "@/context/CartPageContext";
 
 const Card = ({ id, image, title, price }) => {
     const { addToCart } = useCart();
 
     const handleAddToCart = () => {
-        const product = { id, image, title, price };
-        addToCart(product);
+        const book = { id, image, title, price };
+        addToCart(book);
     };
 
     return (
         <div className="flex h-full">
             <div className="group flex flex-col w-full items-start gap-5 text-white">
                 <Link
-                    href={`/product/details?productId=${id}`}
+                    href={`/library/details?bookId=${id}`}
                     className="block overflow-hidden w-full h-full"
                 >
                     <Image

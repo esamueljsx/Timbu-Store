@@ -1,10 +1,10 @@
-import { Raleway } from "next/font/google";
 import "./globals.css";
-import Providers from "./components/ui/NProgress";
-import Footer from "./components/ui/Footer";
-import Navbar from "./components/ui/Navbar";
-import { CartProvider } from "@/context/CartContext";
 import { Suspense } from "react";
+import { Raleway } from "next/font/google";
+import Navbar from "./components/ui/Navbar";
+import Footer from "./components/ui/Footer";
+import Loader from "./components/ui/NProgress";
+import { CartPageProvider } from "@/context/CartPageContext";
 
 const trispace = Raleway({
   weight: ["400", "500", "600", "700", "800"],
@@ -27,15 +27,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${trispace.variable} font-timbu bg-main`}>
-        <Providers>
+        <Loader>
           <Suspense>
-            <CartProvider>
+            <CartPageProvider>
               <Navbar />
               {children}
               <Footer />
-            </CartProvider>
+            </CartPageProvider>
           </Suspense>
-        </Providers>
+        </Loader>
       </body>
     </html>
   );

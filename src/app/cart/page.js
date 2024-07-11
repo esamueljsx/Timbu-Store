@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
-import { useCart } from '@/context/CartContext';
 import { PageWrapper } from "../components/ui/PageWrapper";
 import Image from "next/image";
 import Button from "../components/ui/Button";
 import Icon from "../components/ui/Icons";
 import Breadcrumb from "../components/ui/BreadCrumbs";
+import { useCart } from "@/context/CartPageContext";
 
 const CartPage = () => {
     const { cart, removeFromCart, incrementQuantity, decrementQuantity } = useCart();
@@ -29,7 +29,7 @@ const CartPage = () => {
                             <p className="text-3xl text-white/60 font-bold">
                                 Your Shopping Cart is Empty
                             </p>
-                            <Button path="/product">
+                            <Button path="/library">
                                 Start shopping
                             </Button>
                         </div>
@@ -91,8 +91,6 @@ const CartPage = () => {
                                                     </h1>
 
                                                     <p className="text-2xl font-semibold">${item.price.toFixed(2)}</p>
-
-                                                    {/* <span>Sub Total ${(item.price * item.quantity).toFixed(2)}</span> */}
                                                 </div>
 
                                                 <div className="flex items-center justify-between w-full gap-2">

@@ -2,6 +2,10 @@ import Icon from "@/app/components/ui/Icons";
 import Button from "../../components/ui/Button";
 import { PageWrapper } from "../../components/ui/PageWrapper";
 
+export const metadata = {
+    title: "Order Confirmed",
+  }
+
 const OrderConfirmationPage = () => {
     return (
         <PageWrapper>

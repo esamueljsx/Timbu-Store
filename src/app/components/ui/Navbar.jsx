@@ -4,7 +4,7 @@ import Link from "next/link";
 import Button from "./Button";
 import logo from "../../../../public/assets/logo.png";
 import Icon from "./Icons";
-import { useCart } from "@/context/CartContext";
+import { useCart } from "@/context/CartPageContext";
 
 function Navbar() {
     const { cart } = useCart();

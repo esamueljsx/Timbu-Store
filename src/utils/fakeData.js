@@ -4,7 +4,7 @@ import book3 from "../../public/assets/bk3.jpg";
 import book4 from "../../public/assets/bk4.jpg";
 import book5 from "../../public/assets/bk5.jpg";
 
-const productLists = [
+const bookLists = [
   {
     id: 1,
     image: book1,
@@ -41,4 +41,4 @@ const productLists = [
     desc: "This book was written to educate and inspire up and coming techies on the reality and harsh truth that comes with surviving in the tech industry.",
   },
 ];
-export default productLists;
+export default bookLists;

@@ -1,5 +1,5 @@
 "use client";
-import { useCart } from '@/context/CartContext';
+import { useCart } from '@/context/CartPageContext';
 import { PageWrapper } from "../components/ui/PageWrapper";
 import Image from "next/image";
 import Button from "../components/ui/Button";
