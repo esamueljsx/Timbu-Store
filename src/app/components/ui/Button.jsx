@@ -16,8 +16,6 @@ export default function Button({ path, children, variant = 'primary', onClick, c
         return (
             <Link
                 href={path}
-                passHref
-                role='button'
                 className={buttonClasses}
             >
                 {children}
@@ -27,8 +25,6 @@ export default function Button({ path, children, variant = 'primary', onClick, c
         return (
             <>
                 <button
-                    type='button'
-                    role='button'
                     className={buttonClasses}
                     onClick={onClick}
                 >
